@@ -9,6 +9,7 @@ class IMDBUserResource(BaseApplicationResource):
     @classmethod
     def get_by_username_prefix(cls, name_prefix):
         # database, table, column, prefix
-        res = d_service.get_by_prefix("imdb_new", "users",
+        db_service = d_service.RDBService()
+        res = db_service.get_by_prefix("imdb_new", "users",
                                       "username", name_prefix)
         return res

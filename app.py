@@ -23,7 +23,8 @@ def get_artists_by_prefix(prefix):
 
 @app.route('/<db_schema>/<table_name>/<column_name>/<prefix>')
 def get_by_prefix(db_schema, table_name, column_name, prefix):
-    res = d_service.get_by_prefix(db_schema, table_name, column_name, prefix)
+    db_service = d_service.RDBService()
+    res = db_service.get_by_prefix(db_schema, table_name, column_name, prefix)
     rsp = Response(json.dumps(res), status=200, content_type="application/json")
     return rsp
 
