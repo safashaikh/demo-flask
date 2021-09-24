@@ -19,6 +19,7 @@
 --
 -- Table structure for table `name_basics`
 --
+use imdb_new;
 
 DROP TABLE IF EXISTS `name_basics`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -149,3 +150,16 @@ CREATE TABLE `title_ratings` (
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2020-11-29 10:25:16
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `email` varchar(255) COLLATE utf8_bin NOT NULL,
+    `password` varchar(255) COLLATE utf8_bin NOT NULL,
+    `username` varchar(50) COLLATE utf8_bin NOT NULL,
+    UNIQUE(username),
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin
+AUTO_INCREMENT=1 ;
+
+Insert into users (email, password, username) VALUES ('hagrid@gmail.com', 'rockcake', 'hagrid');
+Insert into users (email, password, username) VALUES ('harrypotter@gmail.com', 'hedwig123', 'harrypotter');
